@@ -1,0 +1,7 @@
+.venv
+__pycache__
+.pytest_cache
+.coverage
+*.db
+.ruff_cache
+.mypy_cache
