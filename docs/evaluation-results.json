@@ -1,0 +1,82 @@
+{
+  "dataset": "Synthetic five-identity nine-scenario demonstration",
+  "labels": "Policy-defined reachability to finance resource; graded ranking prioritizes observed signals. Labels are constructed, not independent real-world threat truth.",
+  "methods": {
+    "independent_configuration_rules": {
+      "true_positive": 2,
+      "false_positive": 0,
+      "false_negative": 2,
+      "precision": 1.0,
+      "recall": 0.5,
+      "false_positive_rate": 0.0,
+      "ndcg": 0.7768062610832324,
+      "ranking": [
+        "arn:aws:iam::111122223333:role/payments-worker",
+        "arn:aws:iam::111122223333:role/vendor-bridge"
+      ]
+    },
+    "graph": {
+      "true_positive": 4,
+      "false_positive": 0,
+      "false_negative": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positive_rate": 0.0,
+      "ndcg": 0.7338080146249167,
+      "ranking": [
+        "arn:aws:iam::111122223333:role/vendor-bridge",
+        "arn:aws:iam::111122223333:role/payments-worker",
+        "arn:aws:iam::111122223333:role/deployment",
+        "arn:aws:iam::111122223333:user/developer"
+      ]
+    },
+    "graph_with_events": {
+      "true_positive": 4,
+      "false_positive": 0,
+      "false_negative": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positive_rate": 0.0,
+      "ndcg": 0.9733434704234325,
+      "ranking": [
+        "arn:aws:iam::111122223333:role/payments-worker",
+        "arn:aws:iam::111122223333:role/vendor-bridge",
+        "arn:aws:iam::111122223333:user/developer",
+        "arn:aws:iam::111122223333:role/deployment"
+      ]
+    }
+  },
+  "path_validity": 1.0,
+  "expected_path_count": 4,
+  "actual_path_count": 4,
+  "analysis_seconds": 0.0007793749973643571,
+  "remediation_removed_paths": 3,
+  "scalability": [
+    {
+      "identities": 10,
+      "seconds": 0.000806791998911649,
+      "paths": 0
+    },
+    {
+      "identities": 50,
+      "seconds": 0.0165160830001696,
+      "paths": 0
+    },
+    {
+      "identities": 100,
+      "seconds": 0.06430929199996172,
+      "paths": 0
+    },
+    {
+      "identities": 250,
+      "seconds": 0.40550408299895935,
+      "paths": 0
+    }
+  ],
+  "limitations": [
+    "Tiny synthetic demonstration; no statistical generalization",
+    "Behavior labels intentionally align with inserted signals; not evidence of research superiority",
+    "Scalability measures benign identities with two assets, not dense adversarial graphs",
+    "No live AWS simulator oracle available"
+  ]
+}

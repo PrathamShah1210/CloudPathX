@@ -19,3 +19,4 @@ playwright-report/
 *.log
 secrets/
 work/
+*.tsbuildinfo

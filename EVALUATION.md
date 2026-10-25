@@ -1,0 +1,11 @@
+# Reproducible synthetic evaluation
+
+Run `cd backend && .venv/bin/python ../scripts/evaluate.py` after installing dependencies. The script writes `docs/evaluation-results.json`, containing actual timings and calculated metrics. Checked-in results must be regenerated when engine behavior changes.
+
+The fixture has five identities and two S3 assets. Four identities have independently enumerated expected routes to the synthetic finance asset. The metrics-reader role is the negative control. The expected route arrays are declared explicitly rather than derived from the engine's graph. Regression tests additionally exercise deny precedence, boundaries, missing conditions, cross-account trust, PassRole-only false positives and pure remediation.
+
+The three comparison modes are independent broad-grant/external-trust rules, graph reachability without events, and graph plus events. Precision/recall concern **configured reachability to this asset**, not actual compromise. nDCG uses constructed graded relevance: payments-worker=3, developer=2, deployment/vendor=1, benign=0. Those labels intentionally reflect inserted events, so a favorable ranking cannot establish general research superiority. False-positive rate has only one negative example and is not statistically informative.
+
+Path validity compares returned routes with the four explicit expected routes. Remediation replaces the worker's administrator policy with CloudWatch metric read access and measures paths removed. Timing includes local analysis only, not network scanning or database writes. Scaling runs add 10, 50, 100 and 250 benign identities with two assets; dense graphs and organization-scale deployments remain unbenchmarked.
+
+The nine demonstration scenarios overlap in one small fixture. They are not nine independent trials. Future validation needs an independently labeled corpus, dense and sparse workloads, repeated hardware-controlled timings, inter-rater labels, and an AWS authorization oracle. No novelty claim is made: IAM graph analysis and identity reachability are established ideas, including [Principal Mapper](https://github.com/nccgroup/PMapper). The engineering contribution here is transparent evidence and uncertainty connected to a working offline investigation workflow.

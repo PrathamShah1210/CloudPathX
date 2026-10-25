@@ -1,0 +1,6 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {"Sid":"Inventory", "Effect":"Allow", "Action":["sts:GetCallerIdentity","iam:GetAccountAuthorizationDetails","iam:GetPolicy","iam:GetPolicyVersion","iam:ListInstanceProfiles","lambda:ListFunctions","s3:ListAllMyBuckets","s3:GetBucketPolicy","s3:GetBucketPolicyStatus","s3:GetBucketPublicAccessBlock","cloudtrail:LookupEvents","access-analyzer:ListAnalyzers","access-analyzer:ListFindings","access-analyzer:ValidatePolicy","organizations:DescribeOrganization","securityhub:GetFindings","config:ListDiscoveredResources"],"Resource":"*"}
+  ]
+}
